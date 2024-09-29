@@ -1,0 +1,43 @@
+Financial Data Chat Bot Documentation
+
+Overview
+This project implements a Flask-based chat bot that analyzes financial data from a CSV file (10-K Filings.csv). It preprocesses the data to compute key financial metrics and allows users to query specific information about companies listed in the dataset.
+
+Functionality
+
+Data Preprocessing: Loads and cleans financial data from the CSV file.
+Converts relevant columns to numeric types and calculates year-over-year changes for financial metrics.
+
+Query Handling: Provides predefined queries for specific financial metrics and companies.
+Responds to user queries through a web interface.
+
+Web Interface: Users can input queries via a web form (/query route).
+Queries are processed to retrieve and display relevant financial information.
+
+Predefined Queries
+
+Microsoft Queries: "What was Microsoft's Net Income in Fiscal Year 2022?"
+"What were Microsoft's Total Liabilities in Fiscal Year 2021?"
+
+Tesla Queries: "What were Tesla's Total Assets in Fiscal Year 2021?"
+"What was Tesla's Cash Flow from Operations (CFFO) in Fiscal Year 2022?"
+
+Apple Queries: "What was Apple's Total Revenue in Fiscal Year 2023?"
+"What is Apple's Return on Assets (ROA) for the latest fiscal year?"
+
+
+Limitations
+
+Data Scope: Limited to the dataset (10-K Filings.csv), does not support queries outside predefined metrics.
+Real-Time Data: Operates on static data, not real-time financial updates.
+Query Flexibility: Requires predefined query format, does not support natural language processing.
+Data Accuracy: Depends on accuracy of data in the CSV file.
+
+
+Access
+
+To access the chat bot:
+>Open the Python script file.
+>Run the script in a terminal.
+>Click on the link http://127.0.0.1:5000 that appears in the terminal.
+>Enter any of the predefined queries in the web interface.
