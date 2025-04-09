@@ -136,7 +136,7 @@ def get_microsoft_total_liabilities(dataframe, year):
     return f"Microsoft's Total Liabilities in Fiscal Year {year} are {total_liabilities:.2f} million."
 
 # Preprocess the data once and store it globally to avoid redefining 'df'
-CSV_FILE_PATH = r'C:\Users\HP\Documents\Data Analysis\BCG\Task 1 - 10-K_Analysis\10-K Filings.csv'
+CSV_FILE_PATH = 'Task 1 - 10-K_Analysis\10-K Filings.csv'
 df = preprocess_data(CSV_FILE_PATH)
 
 predefined_queries = {
