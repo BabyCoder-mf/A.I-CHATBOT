@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import pandas as pd
+import os
 
 app = Flask(__name__)
 
@@ -135,10 +136,18 @@ def get_microsoft_total_liabilities(dataframe, year):
     total_liabilities = dataframe[(dataframe['Company'] == 'Microsoft') & (dataframe['Fiscal Year'] == year)]['Total Liabilities'].iloc[0]
     return f"Microsoft's Total Liabilities in Fiscal Year {year} are {total_liabilities:.2f} million."
 
-# Preprocess the data once and store it globally to avoid redefining 'df'
-CSV_FILE_PATH = 'Task 1/Task 1 - 10-K_Analysis/10-K Filings.csv'
-df = preprocess_data(CSV_FILE_PATH)
+# Fix the CSV file path dynamically
+current_dir = os.path.dirname(os.path.abspath(__file__))
+csv_file_path = os.path.join(current_dir, 'Task 1 - 10-K_Analysis', '10-K Filings.csv')
 
+# Check if the file exists before processing
+if not os.path.exists(csv_file_path):
+    raise FileNotFoundError(f"CSV file not found at {csv_file_path}")
+
+# Preprocess the data once and store it globally to avoid redefining 'df'
+df = preprocess_data(csv_file_path)
+
+# Predefined queries
 predefined_queries = {
     "What was Microsoft's Net Income in Fiscal Year 2022?": lambda: get_microsoft_net_income(df, 2022),
     "What were Tesla's Total Assets in Fiscal Year 2021?": lambda: get_tesla_total_assets(df, 2021),
