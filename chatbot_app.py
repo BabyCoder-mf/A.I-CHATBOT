@@ -177,5 +177,7 @@ def query():
 
     return render_template('index.html', response=response)
 
+# Configured for Render deployment: Binds to 0.0.0.0 and grabs the dynamic system port
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=False)
